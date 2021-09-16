@@ -12,7 +12,7 @@ public class ExampleTest {
                 new Fruit("Virsik", 130),
                 new Fruit("Õun", 110)
         };
-        final Fruit correct = array[1];
+        final Fruit correct = array[2];
         Oracle oracle = new Oracle(correct);
         GuessingGame nm = new GuessingGame(oracle);
         Fruit[] copy = Arrays.copyOf(array, array.length);

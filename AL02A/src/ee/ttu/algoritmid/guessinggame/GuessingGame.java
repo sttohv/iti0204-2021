@@ -21,9 +21,10 @@ public class GuessingGame {
         // TODO
         Fruit[] sortedFruitArray = sort(fruitArray).toArray(new Fruit[0]);
         Fruit middleWeightFruit = getMiddleElementByWeight(fruitArray);
-        if(oracle.isIt(middleWeightFruit).equals("correct!")){
+        String isIT = oracle.isIt(middleWeightFruit);
+        if(isIT.equals("correct!")){
             return middleWeightFruit.getName();
-        }else if(oracle.isIt(middleWeightFruit).equals("lighter")){
+        }else if(isIT.equals("lighter")){
             Fruit[] newArray = Arrays.copyOfRange(sortedFruitArray, 0, sortedFruitArray.length/2);
             return play(newArray);
         }else{
@@ -37,10 +38,7 @@ public class GuessingGame {
     }
 
     public Fruit getMiddleElementByWeight(Fruit[] sortedValues) {
-        // sort array
-        // get count of fruits
         int totalElements = sortedValues.length;
-        // check if total number of scores is even
         Fruit middle = sortedValues[sortedValues.length / 2];
         return middle;
     }

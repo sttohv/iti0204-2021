@@ -38,7 +38,8 @@ public class GuessingGame {
     }
 
     public Fruit getMiddleElementByWeight(Fruit[] sortedValues) {
-        Fruit middle = sortedValues[sortedValues.length / 2];
+        int totalElements = sortedValues.length;
+        Fruit middle = sortedValues[totalElements / 2];
         return middle;
     }
 

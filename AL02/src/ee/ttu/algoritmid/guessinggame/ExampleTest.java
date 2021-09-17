@@ -1,8 +1,9 @@
 package ee.ttu.algoritmid.guessinggame;
+
 import java.util.Arrays;
 
 public class ExampleTest {
-    public static final void testExampleFruitArray()  {
+    public static final void testExampleFruitArray() {
         Fruit[] array = {new Fruit("Apelsin", 150),
                 new Fruit("Banaan", 185),
                 new Fruit("Greip", 250),
@@ -19,14 +20,14 @@ public class ExampleTest {
         final boolean guessResult = nm.play(copy).equals(correct.getName());
         if (!guessResult) {
             System.out.println("Your solution did not guess correctly.");
-        }else{
+        } else {
             System.out.println("Juhhuuu");
         }
     }
 
     public static void main(String[] args) {
 
-            testExampleFruitArray();
+        testExampleFruitArray();
 
     }
 }

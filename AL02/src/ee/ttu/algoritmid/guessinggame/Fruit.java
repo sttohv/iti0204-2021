@@ -1,4 +1,5 @@
 package ee.ttu.algoritmid.guessinggame;
+
 public class Fruit {
 
     private String name;

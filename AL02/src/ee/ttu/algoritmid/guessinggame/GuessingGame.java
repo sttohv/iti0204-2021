@@ -22,13 +22,13 @@ public class GuessingGame {
         Fruit[] sortedFruitArray = sort(fruitArray).toArray(new Fruit[0]);
         Fruit middleWeightFruit = getMiddleElementByWeight(fruitArray);
         String isIT = oracle.isIt(middleWeightFruit);
-        if(isIT.equals("correct!")){
+        if (isIT.equals("correct!")) {
             return middleWeightFruit.getName();
-        }else if(isIT.equals("lighter")){
-            Fruit[] newArray = Arrays.copyOfRange(sortedFruitArray, 0, sortedFruitArray.length/2);
+        } else if (isIT.equals("lighter")) {
+            Fruit[] newArray = Arrays.copyOfRange(sortedFruitArray, 0, sortedFruitArray.length / 2);
             return play(newArray);
-        }else{
-            Fruit[] newArray = Arrays.copyOfRange(sortedFruitArray, sortedFruitArray.length/2 + 1,sortedFruitArray.length);
+        } else {
+            Fruit[] newArray = Arrays.copyOfRange(sortedFruitArray, sortedFruitArray.length / 2 + 1, sortedFruitArray.length);
             return play(newArray);
         }
     }
@@ -38,7 +38,6 @@ public class GuessingGame {
     }
 
     public Fruit getMiddleElementByWeight(Fruit[] sortedValues) {
-        int totalElements = sortedValues.length;
         Fruit middle = sortedValues[sortedValues.length / 2];
         return middle;
     }

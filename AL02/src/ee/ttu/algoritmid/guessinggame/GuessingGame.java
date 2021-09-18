@@ -19,29 +19,30 @@ public class GuessingGame {
      */
     public String play(Fruit[] fruitArray) {
         // TODO
-        Fruit[] sortedFruitArray = sort(fruitArray).toArray(new Fruit[0]);
-        Fruit middleWeightFruit = getMiddleElementByWeight(fruitArray);
-        String isIT = oracle.isIt(middleWeightFruit);
+        Fruit[] sortedValues = Arrays.stream(fruitArray).sorted(Comparator.comparing(Fruit::getWeight)).toArray(Fruit[]::new);
+        int totalElements = sortedValues.length;
+        Fruit middle = sortedValues[totalElements / 2];
+        String isIT = oracle.isIt(middle);
         if (isIT.equals("correct!")) {
-            return middleWeightFruit.getName();
+            return middle.getName();
         } else if (isIT.equals("lighter")) {
-            Fruit[] newArray = Arrays.copyOfRange(sortedFruitArray, 0, sortedFruitArray.length / 2);
+            Fruit[] newArray = Arrays.copyOfRange(sortedValues, 0, sortedValues.length / 2);
             return play(newArray);
         } else {
-            Fruit[] newArray = Arrays.copyOfRange(sortedFruitArray, sortedFruitArray.length / 2 + 1, sortedFruitArray.length);
+            Fruit[] newArray = Arrays.copyOfRange(sortedValues, sortedValues.length / 2 + 1, sortedValues.length);
             return play(newArray);
         }
     }
 
-    public List<Fruit> sort(Fruit[] fruitArray) {
-        return Arrays.stream(fruitArray).sorted(Comparator.comparing(Fruit::getWeight)).collect(Collectors.toList());
-    }
-
-    public Fruit getMiddleElementByWeight(Fruit[] sortedValues) {
-        int totalElements = sortedValues.length;
-        Fruit middle = sortedValues[totalElements / 2];
-        return middle;
-    }
+//    public List<Fruit> sort(Fruit[] fruitArray) {
+//        return Arrays.stream(fruitArray).sorted(Comparator.comparing(Fruit::getWeight)).collect(Collectors.toList());
+//    }
+//
+//    public Fruit getMiddleElementByWeight(Fruit[] sortedValues) {
+//        int totalElements = sortedValues.length;
+//        Fruit middle = sortedValues[totalElements / 2];
+//        return middle;
+//    }
 
 
 }

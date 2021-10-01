@@ -43,16 +43,19 @@ public class Popularity {
 
     /**
      * @param x, y - coordinates
-     * @return the number of occurrennces of the point
+     * @return the number of occurrences of the point
      */
     int pointPopularity(Integer x, Integer y) {
         List<Integer> point = List.of(x, y);
-        return points.get(point);
+        if (points.containsKey(point)) {
+            return points.get(point);
+        }
+        return 0;
     }
 
 
     /**
-     * @return the number of occurrennces of the most popular point
+     * @return the number of occurrences of the most popular point
      */
     int maxPopularity() {
         return maxCount;

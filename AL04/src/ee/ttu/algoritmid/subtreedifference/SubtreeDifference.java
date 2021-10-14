@@ -13,10 +13,9 @@ public class SubtreeDifference {
         if(rightChild!=null && leftChild!= null) {
             calculateDifferences(leftChild);
             calculateDifferences(rightChild);
+
             long leftChildrenSum = leftChild.getSumOfAllChildren() + leftChild.getValue();
-
             long rightChildrenSum = rightChild.getSumOfAllChildren() + rightChild.getValue();
-
 
             rootNode.setSumOfAllChildren(leftChildrenSum+ rightChildrenSum);
             rootNode.setDifferenceOfLeftAndRight(leftChildrenSum-rightChildrenSum);
@@ -26,23 +25,16 @@ public class SubtreeDifference {
             calculateDifferences(leftChild);
             long leftChildrenSum = leftChild.getSumOfAllChildren() + leftChild.getValue();
             rootNode.setSumOfAllChildren(leftChildrenSum);
-            rootNode.setDifferenceOfLeftAndRight(leftChildrenSum);
-
+            rootNode.setDifferenceOfLeftAndRight(leftChildrenSum - 0);
         }
+
         else if(rightChild != null){
             calculateDifferences(rightChild);
             long rightChildrenSum = rightChild.getSumOfAllChildren() + rightChild.getValue();
 
             rootNode.setSumOfAllChildren(rightChildrenSum);
-            rootNode.setDifferenceOfLeftAndRight(-rightChildrenSum);
-
-
+            rootNode.setDifferenceOfLeftAndRight(0 - rightChildrenSum);
         }
-
-
-        //kui on mõlemal lapsed
-
-
         return rootNode;
     }
 
@@ -55,8 +47,6 @@ public class SubtreeDifference {
          *             10         17
          *           /   \       /  \
          *         3     13     5    25
-         *                 \
-         *
          */
         Node rootNode = new Node(15);
         Node a = new Node(10);

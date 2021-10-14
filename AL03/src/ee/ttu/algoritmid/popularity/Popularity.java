@@ -61,4 +61,10 @@ public class Popularity {
         return maxCount;
     }
 
+    public static void main(String[] args) {
+        int k = 53;
+        int j = 5;
+        System.out.println( k%11 +j*((k%7)+1));
+    }
+
 }

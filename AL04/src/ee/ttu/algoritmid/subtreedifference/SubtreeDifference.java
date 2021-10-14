@@ -34,6 +34,7 @@ public class SubtreeDifference {
 
             rootNode.setSumOfAllChildren(rightChildrenSum);
 
+
         }
 
 

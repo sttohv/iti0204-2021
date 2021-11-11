@@ -86,10 +86,11 @@ public class AL05 {
                     current = queue.element(); //gets the first element of queue
                     erdosNumber++;
                 }
+                return -1;
             }
-            return -1;
+
         }
-    }
+}
 
 
     /**
@@ -104,8 +105,8 @@ public class AL05 {
     public Integer buildGraphAndFindErdosNumber(List<SimpleEntry<String, String>> coauthors,
                                                 String scientist) {
         // TODO
-        for (SimpleEntry<String,String> pair : coauthors
-             ) {
+        for (SimpleEntry<String, String> pair : coauthors
+        ) {
             graph.addEdge(pair.getKey(), pair.getValue());
         }
 

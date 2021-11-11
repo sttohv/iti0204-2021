@@ -6,7 +6,9 @@ import java.util.stream.Collectors;
 
 public class AL05 {
     public Graph graph = new Graph();
-    private class Graph {
+
+    //enne oli private
+    public class Graph {
         private Map<String, List<String>> graph = new HashMap<>();
         private Map<String, Integer> erdosNumbers = new HashMap<>();
 
@@ -87,7 +89,6 @@ public class AL05 {
             }
             return -1;
         }
-
     }
 
 
@@ -103,6 +104,11 @@ public class AL05 {
     public Integer buildGraphAndFindErdosNumber(List<SimpleEntry<String, String>> coauthors,
                                                 String scientist) {
         // TODO
-        return null;
+        for (SimpleEntry<String,String> pair : coauthors
+             ) {
+            graph.addEdge(pair.getKey(), pair.getValue());
+        }
+
+        return graph.breadthFirstSearch(scientist);
     }
 }

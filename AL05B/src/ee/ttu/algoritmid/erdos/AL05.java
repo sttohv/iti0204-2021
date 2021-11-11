@@ -68,31 +68,25 @@ public class AL05 {
             queue.add(paul);
             if (goal.equals(paul)) {
                 return 0;
-            } else {
-                while (!queue.isEmpty()) {
-                    List<String> collaborators = graph.get(current);
-                    visited.add(current);
-                    if (!collaborators.isEmpty()) {
-                        for (String collaborator : collaborators
-                        ) {
-                            if (collaborator.equals(goal)) {
-                                return erdosNumber;
-                            } else if (!visited.contains(collaborator)) {
-                                queue.add(collaborator);
-                            }
-                        }
-                        erdosNumber++;
-                    }
-                    queue.remove();
-                    //visited.add(current);
-                    current = queue.element(); //gets the first element of queue
-
-
-
-                }
-                return -1;
             }
+            while (!queue.isEmpty()) {
+                List<String> collaborators = graph.get(current);
+                visited.add(current);
 
+                for (String collaborator : collaborators
+                ) {
+                    if (collaborator.equals(goal)) {
+                        return erdosNumber;
+                    } else if (!visited.contains(collaborator)) {
+                        queue.add(collaborator);
+                    }
+                }
+                queue.remove();
+                //visited.add(current);
+                current = queue.element(); //gets the first element of queue
+                erdosNumber++;
+            }
+            return -1;
         }
     }
 

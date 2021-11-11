@@ -83,8 +83,9 @@ public class AL05 {
                         } else if (!visited.contains(collaborator)) {
                             queue.add(collaborator);
                             //gets the first element of queue
+                            current = queue.element(); //
                         }
-                    }current = queue.element(); //
+                    }
                 }
 
                 //visited.add(current);

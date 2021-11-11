@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 public class AL05 {
     public Graph graph = new Graph();
 
+
     private class Graph {
         private Map<String, List<String>> graph = new HashMap<>();
         private Map<String, Integer> erdosNumbers = new HashMap<>();

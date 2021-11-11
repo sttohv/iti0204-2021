@@ -56,7 +56,7 @@ public class AL05 {
          */
         public Integer breadthFirstSearch(String goal) {
             // TODO
-            Queue<String> queue = new LinkedList<>();
+            Queue<String> queue = new ArrayDeque<>();
             Set<String> visited = new HashSet<>();
 
             final String paul = "Paul Erdös";

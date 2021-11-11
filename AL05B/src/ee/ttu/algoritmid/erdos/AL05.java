@@ -64,7 +64,7 @@ public class AL05 {
             final String paul = "Paul Erdös";
             String current = paul;
             Integer erdosNumber = 1;
-            erdosNumbers.put(paul, 0);
+           // erdosNumbers.put(paul, 0);
 
             queue.add(paul);
             if (goal.equals(paul)) {

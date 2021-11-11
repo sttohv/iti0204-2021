@@ -70,20 +70,24 @@ public class AL05 {
                 return 0;
             }
             while (!queue.isEmpty()) {
+                queue.remove();
                 List<String> collaborators = graph.get(current);
                 visited.add(current);
+                if (!collaborators.equals(null)) {
+                    for (String collaborator : collaborators
+                    ) {
 
-                for (String collaborator : collaborators
-                ) {
-                    if (collaborator.equals(goal)) {
-                        return erdosNumber;
-                    } else if (!visited.contains(collaborator)) {
-                        queue.add(collaborator);
+                        if (collaborator.equals(goal)) {
+                            return erdosNumber;
+                        } else if (!visited.contains(collaborator)) {
+                            queue.add(collaborator);
+                            current = queue.element(); //gets the first element of queue
+                        }
                     }
                 }
-                queue.remove();
+
                 //visited.add(current);
-                current = queue.element(); //gets the first element of queue
+
                 erdosNumber++;
             }
             return -1;
@@ -101,7 +105,7 @@ public class AL05 {
      * @return the Erdos number of the scientist
      */
     public Integer buildGraphAndFindErdosNumber(List<SimpleEntry<String, String>> coauthors,
-                                                String scientist) {
+                                                       String scientist) {
         // TODO
         for (SimpleEntry<String, String> pair : coauthors
         ) {
@@ -110,4 +114,13 @@ public class AL05 {
 
         return graph.breadthFirstSearch(scientist);
     }
+
+//    public static void main(String[] args) {
+//        SimpleEntry<String, String> uno = new AbstractMap.SimpleEntry<String, String>("Stina", "Liisi");
+//        SimpleEntry<String, String> tres = new AbstractMap.SimpleEntry<String, String>("Stina", "Paul Erdös");
+//        List<SimpleEntry<String, String>> dos = new ArrayList<>();
+//        dos.add(uno);
+//        dos.add(tres);
+//        System.out.println(buildGraphAndFindErdosNumber(dos, "Paul Erdös"));
+//    }
 }

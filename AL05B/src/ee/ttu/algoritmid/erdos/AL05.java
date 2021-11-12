@@ -5,10 +5,10 @@ import java.util.AbstractMap.SimpleEntry;
 import java.util.stream.Collectors;
 
 public class AL05 {
-    public  Graph graph = new Graph();
+    public static Graph graph = new Graph();
 
     //enne oli private
-    public class Graph {
+    public static class Graph {
         private Map<String, List<String>> graph = new HashMap<>();
         private Map<String, Integer> erdosNumbers = new HashMap<>();
 
@@ -68,27 +68,32 @@ public class AL05 {
             if (goal.equals(paul)) {
                 return erdosNumbers.get(paul);
             }
-            if (erdosNumbers.containsKey(goal)) {
-                while (!queue.isEmpty()) {
-                    queue.remove();
-                    visited.add(current);
-                    List<String> collaborators = graph.get(current);
-                    for (String collaborator : collaborators
-                    ) {
-                        if (erdosNumbers.get(collaborator) == -1) {
-                            if (!visited.contains(collaborator)) {
-                                queue.add(collaborator);
-                                erdosNumbers.put(collaborator, erdosNumbers.get(current) + 1);
-                            }
+            // if (erdosNumbers.containsKey(goal)) {
+            while (!queue.isEmpty()) {
+                queue.remove();
+                visited.add(current);
+                List<String> collaborators = graph.get(current);
+                for (String collaborator : collaborators
+                ) {
+                    if (erdosNumbers.get(collaborator) == -1) {
+                        if (!visited.contains(collaborator)) {
+                            queue.add(collaborator);
+                            erdosNumbers.put(collaborator, erdosNumbers.get(current) + 1);
                         }
+                    }
 
-                    }
+                }
+                try {
                     current = queue.element();
-                    if (current.equals(goal)) {
-                        return erdosNumbers.get(goal);
-                    }
+                }catch (NoSuchElementException ex){
+                    return -1;
+                }
+
+                if (current.equals(goal)) {
+                    return erdosNumbers.get(goal);
                 }
             }
+            //  }
             return -1;
         }
     }
@@ -103,7 +108,7 @@ public class AL05 {
      * @param scientist the name of the scientist whose Erdös number needs to be determined or -1 if it can`t be done
      * @return the Erdos number of the scientist
      */
-    public  Integer buildGraphAndFindErdosNumber(List<SimpleEntry<String, String>> coauthors,
+    public static Integer buildGraphAndFindErdosNumber(List<SimpleEntry<String, String>> coauthors,
                                                        String scientist) {
         // TODO
         for (SimpleEntry<String, String> pair : coauthors
@@ -114,8 +119,8 @@ public class AL05 {
         return graph.breadthFirstSearch(scientist);
     }
 
-//    public static void main(String[] args) {
-        //     SimpleEntry<String, String> a = new AbstractMap.SimpleEntry<String, String>("Pets", "Paul Erdös");
+    public static void main(String[] args) {
+    //     SimpleEntry<String, String> a = new AbstractMap.SimpleEntry<String, String>("Pets", "Paul Erdös");
 //        SimpleEntry<String, String> b = new AbstractMap.SimpleEntry<String, String>("Kadri", "Paul Erdös");
 //        SimpleEntry<String, String> c = new AbstractMap.SimpleEntry<String, String>("Toomas", "Paul Erdös");
 //        SimpleEntry<String, String> d = new AbstractMap.SimpleEntry<String, String>("Ants", "Pets");
@@ -139,21 +144,21 @@ public class AL05 {
 //        dos.add(j);
 //        dos.add(l);
 //        System.out.println(buildGraphAndFindErdosNumber(dos, "Mihkel"));
-//        SimpleEntry<String, String> uno = new AbstractMap.SimpleEntry<String, String>("Stina", "Liisi");
-//        SimpleEntry<String, String> tres = new AbstractMap.SimpleEntry<String, String>("Stina", "Paul Erdös");
-//
-//        SimpleEntry<String, String> tres1 = new AbstractMap.SimpleEntry<String, String>("Liisi", "Paul Erdös");
-//        SimpleEntry<String, String> tres2 = new AbstractMap.SimpleEntry<String, String>("Liisi", "Kartul");
-//        SimpleEntry<String, String> tres3 = new AbstractMap.SimpleEntry<String, String>("Kartul", "Paul");
-//        SimpleEntry<String, String> tres4 = new AbstractMap.SimpleEntry<String, String>("Stina", "Paul1");
-//        List<SimpleEntry<String, String>> dos = new ArrayList<>();
-//        dos.add(uno);
-//        dos.add(tres);
-//        dos.add(tres1);
-//        dos.add(tres2);
-//        dos.add(tres3);
-//        dos.add(tres4);
-//
-//        System.out.println(buildGraphAndFindErdosNumber(dos, "Paul Erdöss"));
-//    }
+        SimpleEntry<String, String> uno = new AbstractMap.SimpleEntry<String, String>("Stina", "Liisi");
+        SimpleEntry<String, String> tres = new AbstractMap.SimpleEntry<String, String>("Stina", "Paul Erdös");
+
+        SimpleEntry<String, String> tres1 = new AbstractMap.SimpleEntry<String, String>("Liisi", "Paul Erdös");
+        SimpleEntry<String, String> tres2 = new AbstractMap.SimpleEntry<String, String>("Liisi", "Kartul");
+        SimpleEntry<String, String> tres3 = new AbstractMap.SimpleEntry<String, String>("Kartul", "Paul");
+        SimpleEntry<String, String> tres4 = new AbstractMap.SimpleEntry<String, String>("Stina", "Paul1");
+        List<SimpleEntry<String, String>> dos = new ArrayList<>();
+        dos.add(uno);
+        dos.add(tres);
+        dos.add(tres1);
+        dos.add(tres2);
+        dos.add(tres3);
+        dos.add(tres4);
+
+        System.out.println(buildGraphAndFindErdosNumber(dos, "Paul"));
+    }
 }

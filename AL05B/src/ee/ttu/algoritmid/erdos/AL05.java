@@ -5,7 +5,7 @@ import java.util.AbstractMap.SimpleEntry;
 import java.util.stream.Collectors;
 
 public class AL05 {
-    public Graph graph = new Graph();
+    public  Graph graph = new Graph();
 
     //enne oli private
     public class Graph {
@@ -103,7 +103,7 @@ public class AL05 {
      * @param scientist the name of the scientist whose Erdös number needs to be determined or -1 if it can`t be done
      * @return the Erdos number of the scientist
      */
-    public Integer buildGraphAndFindErdosNumber(List<SimpleEntry<String, String>> coauthors,
+    public  Integer buildGraphAndFindErdosNumber(List<SimpleEntry<String, String>> coauthors,
                                                        String scientist) {
         // TODO
         for (SimpleEntry<String, String> pair : coauthors
@@ -114,7 +114,7 @@ public class AL05 {
         return graph.breadthFirstSearch(scientist);
     }
 
-//    public void main(String[] args) {
+//    public static void main(String[] args) {
         //     SimpleEntry<String, String> a = new AbstractMap.SimpleEntry<String, String>("Pets", "Paul Erdös");
 //        SimpleEntry<String, String> b = new AbstractMap.SimpleEntry<String, String>("Kadri", "Paul Erdös");
 //        SimpleEntry<String, String> c = new AbstractMap.SimpleEntry<String, String>("Toomas", "Paul Erdös");
@@ -154,6 +154,6 @@ public class AL05 {
 //        dos.add(tres3);
 //        dos.add(tres4);
 //
-//        System.out.println(buildGraphAndFindErdosNumber(dos, "Paul Erdös"));
+//        System.out.println(buildGraphAndFindErdosNumber(dos, "Paul Erdöss"));
 //    }
 }

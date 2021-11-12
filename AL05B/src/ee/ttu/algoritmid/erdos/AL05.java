@@ -5,10 +5,10 @@ import java.util.AbstractMap.SimpleEntry;
 import java.util.stream.Collectors;
 
 public class AL05 {
-    public static Graph graph = new Graph();
+    public  Graph graph = new Graph();
 
     //enne oli private
-    public static class Graph {
+    private class Graph {
         private Map<String, List<String>> graph = new HashMap<>();
         private Map<String, Integer> erdosNumbers = new HashMap<>();
 
@@ -104,7 +104,7 @@ public class AL05 {
      * @param scientist the name of the scientist whose Erdös number needs to be determined or -1 if it can`t be done
      * @return the Erdos number of the scientist
      */
-    public static Integer buildGraphAndFindErdosNumber(List<SimpleEntry<String, String>> coauthors,
+    public Integer buildGraphAndFindErdosNumber(List<SimpleEntry<String, String>> coauthors,
                                                        String scientist) {
         // TODO
         for (SimpleEntry<String, String> pair : coauthors
@@ -130,8 +130,9 @@ public class AL05 {
         SimpleEntry<String, String> m = new AbstractMap.SimpleEntry<String, String>("Andero", "Ants1");
         SimpleEntry<String, String> n = new AbstractMap.SimpleEntry<String, String>("Andero1", "Ants1");
         SimpleEntry<String, String> o = new AbstractMap.SimpleEntry<String, String>("Andero2", "Andero1");
-        SimpleEntry<String, String> p = new AbstractMap.SimpleEntry<String, String>("Andero1", "Ants");
-
+        SimpleEntry<String, String> p = new AbstractMap.SimpleEntry<String, String>("Andero2", "Andero3");
+        SimpleEntry<String, String> q = new AbstractMap.SimpleEntry<String, String>("Andero4", "Andero3");
+        SimpleEntry<String, String> r = new AbstractMap.SimpleEntry<String, String>("Andero4", "Petrus");
 
         List<SimpleEntry<String, String>> dos = new ArrayList<>();
 //        dos.add(a);
@@ -144,13 +145,14 @@ public class AL05 {
 //        dos.add(g);
         dos.add(h);
         dos.add(i);
-        dos.add(j);
-//        dos.add(l);
+//        dos.add(j);
+        dos.add(l);
         dos.add(m);
         dos.add(n);
         dos.add(o);
-//        dos.add(p);
-        System.out.println(buildGraphAndFindErdosNumber(dos, "Petrus"));
+        dos.add(p);
+        dos.add(q);
+    //    System.out.println(buildGraphAndFindErdosNumber(dos, "Petrus"));
 
 
 //        SimpleEntry<String, String> uno = new AbstractMap.SimpleEntry<String, String>("Stina", "Liisi");

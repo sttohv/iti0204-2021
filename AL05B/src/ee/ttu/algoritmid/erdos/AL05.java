@@ -106,7 +106,6 @@ public class AL05 {
      */
     public Integer buildGraphAndFindErdosNumber(List<SimpleEntry<String, String>> coauthors,
                                                        String scientist) {
-        // TODO
         for (SimpleEntry<String, String> pair : coauthors
         ) {
             graph.addEdge(pair.getKey(), pair.getValue());
@@ -116,23 +115,24 @@ public class AL05 {
     }
 
     public static void main(String[] args) {
-        SimpleEntry<String, String> a = new AbstractMap.SimpleEntry<String, String>("Pets", "Paul Erdös");
-        SimpleEntry<String, String> b = new AbstractMap.SimpleEntry<String, String>("Kadri", "Paul Erdös");
-        SimpleEntry<String, String> c = new AbstractMap.SimpleEntry<String, String>("Ants1", "Paul Erdös");
-        SimpleEntry<String, String> d = new AbstractMap.SimpleEntry<String, String>("Ants1", "Pets");
-        SimpleEntry<String, String> e = new AbstractMap.SimpleEntry<String, String>("Tõnu", "Pets");
-        SimpleEntry<String, String> f = new AbstractMap.SimpleEntry<String, String>("Mihkel", "Kadri");
-        SimpleEntry<String, String> g = new AbstractMap.SimpleEntry<String, String>("Petrus", "Kadri");
-        SimpleEntry<String, String> h = new AbstractMap.SimpleEntry<String, String>("Mihkel", "Ants");
-        SimpleEntry<String, String> i = new AbstractMap.SimpleEntry<String, String>("Andero", "Ants");
-        SimpleEntry<String, String> j = new AbstractMap.SimpleEntry<String, String>("Petrus", "Tõnu");
-        SimpleEntry<String, String> l = new AbstractMap.SimpleEntry<String, String>("Petrus", "Ants");
-        SimpleEntry<String, String> m = new AbstractMap.SimpleEntry<String, String>("Andero", "Ants1");
-        SimpleEntry<String, String> n = new AbstractMap.SimpleEntry<String, String>("Andero1", "Ants1");
-        SimpleEntry<String, String> o = new AbstractMap.SimpleEntry<String, String>("Andero2", "Andero1");
-        SimpleEntry<String, String> p = new AbstractMap.SimpleEntry<String, String>("Andero2", "Andero3");
-        SimpleEntry<String, String> q = new AbstractMap.SimpleEntry<String, String>("Andero4", "Andero3");
-        SimpleEntry<String, String> r = new AbstractMap.SimpleEntry<String, String>("Andero4", "Petrus");
+        SimpleEntry<String, String> a = new AbstractMap.SimpleEntry<>("Pets", "Paul Erdös");
+        SimpleEntry<String, String> b = new AbstractMap.SimpleEntry<>("Kadri", "Paul Erdös");
+        SimpleEntry<String, String> c = new AbstractMap.SimpleEntry<>("Ants1", "Paul Erdös");
+        SimpleEntry<String, String> d = new AbstractMap.SimpleEntry<>("Ants1", "Pets");
+        SimpleEntry<String, String> e = new AbstractMap.SimpleEntry<>("Tõnu", "Pets");
+        SimpleEntry<String, String> f = new AbstractMap.SimpleEntry<>("Mihkel", "Kadri");
+        SimpleEntry<String, String> g = new AbstractMap.SimpleEntry<>("Petrus", "Kadri");
+        SimpleEntry<String, String> h = new AbstractMap.SimpleEntry<>("Mihkel", "Ants");
+        SimpleEntry<String, String> i = new AbstractMap.SimpleEntry<>("Andero", "Ants");
+        SimpleEntry<String, String> j = new AbstractMap.SimpleEntry<>("Petrus", "Tõnu");
+        SimpleEntry<String, String> l = new AbstractMap.SimpleEntry<>("Petrus", "Ants");
+        SimpleEntry<String, String> m = new AbstractMap.SimpleEntry<>("Andero", "Ants1");
+        SimpleEntry<String, String> n = new AbstractMap.SimpleEntry<>("Andero1", "Ants1");
+        SimpleEntry<String, String> o = new AbstractMap.SimpleEntry<>("Andero2", "Andero1");
+        SimpleEntry<String, String> p = new AbstractMap.SimpleEntry<>("Andero2", "Andero3");
+        SimpleEntry<String, String> q = new AbstractMap.SimpleEntry<>("Andero4", "Andero3");
+
+        SimpleEntry<String, String> r = new AbstractMap.SimpleEntry<>("Andero4", "Petrus");
 
         List<SimpleEntry<String, String>> dos = new ArrayList<>();
 //        dos.add(a);

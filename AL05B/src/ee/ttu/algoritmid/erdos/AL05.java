@@ -57,40 +57,35 @@ public class AL05 {
          * Note that search should always start from "Paul Erdös" whose Erdös number is 0.
          */
         public Integer breadthFirstSearch(String goal) {
-            // TODO
             Queue<String> queue = new ArrayDeque<>();
             Set<String> visited = new HashSet<>();
-
             final String paul = "Paul Erdös";
             String current = paul;
-            Integer erdosNumber = 1;
-           // erdosNumbers.put(paul, 0);
 
             queue.add(paul);
+            erdosNumbers.put(paul, 0);
+
             if (goal.equals(paul)) {
-                return 0;
+                return erdosNumbers.get(paul);
             }
             while (!queue.isEmpty()) {
                 queue.remove();
-                List<String> collaborators = graph.get(current);
                 visited.add(current);
-                if (!collaborators.equals(null)) {
-                    for (String collaborator : collaborators
-                    ) {
-
-                        if (collaborator.equals(goal)) {
-                            return erdosNumber;
-                        } else if (!visited.contains(collaborator)) {
+                List<String> collaborators = graph.get(current);
+                for (String collaborator : collaborators
+                ) {
+                    if (erdosNumbers.get(collaborator) == -1) {
+                        if (!visited.contains(collaborator)) {
                             queue.add(collaborator);
-                            //gets the first element of queue
-                            current = queue.element(); //
+                            erdosNumbers.put(collaborator, erdosNumbers.get(current) + 1);
                         }
                     }
+
                 }
-
-                //visited.add(current);
-
-                erdosNumber++;
+                current = queue.element();
+                if (current.equals(goal)) {
+                    return erdosNumbers.get(goal);
+                }
             }
             return -1;
         }
@@ -117,22 +112,46 @@ public class AL05 {
         return graph.breadthFirstSearch(scientist);
     }
 
-    public static void main(String[] args) {
-        SimpleEntry<String, String> uno = new AbstractMap.SimpleEntry<String, String>("Stina", "Liisi");
-        SimpleEntry<String, String> tres = new AbstractMap.SimpleEntry<String, String>("Stina", "Paul Erdös");
-
-        SimpleEntry<String, String> tres1 = new AbstractMap.SimpleEntry<String, String>("Liisi", "Paul Erdös");
-        SimpleEntry<String, String> tres2 = new AbstractMap.SimpleEntry<String, String>("Liisi", "Kartul");
-        SimpleEntry<String, String> tres3 = new AbstractMap.SimpleEntry<String, String>("Kartul", "Paul");
-        SimpleEntry<String, String> tres4 = new AbstractMap.SimpleEntry<String, String>("Stina", "Paul1");
-        List<SimpleEntry<String, String>> dos = new ArrayList<>();
-        dos.add(uno);
-        dos.add(tres);
-        dos.add(tres1);
-        dos.add(tres2);
-        dos.add(tres3);
-        dos.add(tres4);
-
-        System.out.println(buildGraphAndFindErdosNumber(dos, "Paul"));
-    }
+   // public static void main(String[] args) {
+   //     SimpleEntry<String, String> a = new AbstractMap.SimpleEntry<String, String>("Pets", "Paul Erdös");
+//        SimpleEntry<String, String> b = new AbstractMap.SimpleEntry<String, String>("Kadri", "Paul Erdös");
+//        SimpleEntry<String, String> c = new AbstractMap.SimpleEntry<String, String>("Toomas", "Paul Erdös");
+//        SimpleEntry<String, String> d = new AbstractMap.SimpleEntry<String, String>("Ants", "Pets");
+//        SimpleEntry<String, String> e = new AbstractMap.SimpleEntry<String, String>("Tõnu", "Pets");
+//        SimpleEntry<String, String> f = new AbstractMap.SimpleEntry<String, String>("Mihkel", "Kadri");
+//        SimpleEntry<String, String> g = new AbstractMap.SimpleEntry<String, String>("Petrus", "Kadri");
+//        SimpleEntry<String, String> h = new AbstractMap.SimpleEntry<String, String>("Mihkel", "Ants");
+//        SimpleEntry<String, String> i = new AbstractMap.SimpleEntry<String, String>("Andero", "Ants");
+//        SimpleEntry<String, String> j = new AbstractMap.SimpleEntry<String, String>("Petrus", "Ants");
+//        SimpleEntry<String, String> l = new AbstractMap.SimpleEntry<String, String>("Petrus", "Ants");
+//        List<SimpleEntry<String, String>> dos = new ArrayList<>();
+//        dos.add(a);
+//        dos.add(b);
+//        dos.add(c);
+//        dos.add(d);
+//        dos.add(e);
+//        dos.add(f);
+//        dos.add(g);
+//        dos.add(h);
+//        dos.add(i);
+//        dos.add(j);
+//        dos.add(l);
+//        System.out.println(buildGraphAndFindErdosNumber(dos, "Mihkel"));
+//        SimpleEntry<String, String> uno = new AbstractMap.SimpleEntry<String, String>("Stina", "Liisi");
+//        SimpleEntry<String, String> tres = new AbstractMap.SimpleEntry<String, String>("Stina", "Paul Erdös");
+//
+//        SimpleEntry<String, String> tres1 = new AbstractMap.SimpleEntry<String, String>("Liisi", "Paul Erdös");
+//        SimpleEntry<String, String> tres2 = new AbstractMap.SimpleEntry<String, String>("Liisi", "Kartul");
+//        SimpleEntry<String, String> tres3 = new AbstractMap.SimpleEntry<String, String>("Kartul", "Paul");
+//        SimpleEntry<String, String> tres4 = new AbstractMap.SimpleEntry<String, String>("Stina", "Paul1");
+//        List<SimpleEntry<String, String>> dos = new ArrayList<>();
+//        dos.add(uno);
+//        dos.add(tres);
+//        dos.add(tres1);
+//        dos.add(tres2);
+//        dos.add(tres3);
+//        dos.add(tres4);
+//
+//        System.out.println(buildGraphAndFindErdosNumber(dos, "Paul"));
+   // }
 }

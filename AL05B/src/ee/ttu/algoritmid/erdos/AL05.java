@@ -68,7 +68,6 @@ public class AL05 {
             if (goal.equals(paul)) {
                 return erdosNumbers.get(paul);
             }
-            // if (erdosNumbers.containsKey(goal)) {
             while (!queue.isEmpty()) {
                 queue.remove();
                 visited.add(current);
@@ -83,12 +82,11 @@ public class AL05 {
                     }
 
                 }
-                try {
+                if (!queue.isEmpty()) {
                     current = queue.element();
-                }catch (NoSuchElementException ex){
+                }else {
                     return -1;
                 }
-
                 if (current.equals(goal)) {
                     return erdosNumbers.get(goal);
                 }
@@ -120,45 +118,56 @@ public class AL05 {
     }
 
     public static void main(String[] args) {
-    //     SimpleEntry<String, String> a = new AbstractMap.SimpleEntry<String, String>("Pets", "Paul Erdös");
-//        SimpleEntry<String, String> b = new AbstractMap.SimpleEntry<String, String>("Kadri", "Paul Erdös");
-//        SimpleEntry<String, String> c = new AbstractMap.SimpleEntry<String, String>("Toomas", "Paul Erdös");
-//        SimpleEntry<String, String> d = new AbstractMap.SimpleEntry<String, String>("Ants", "Pets");
-//        SimpleEntry<String, String> e = new AbstractMap.SimpleEntry<String, String>("Tõnu", "Pets");
-//        SimpleEntry<String, String> f = new AbstractMap.SimpleEntry<String, String>("Mihkel", "Kadri");
-//        SimpleEntry<String, String> g = new AbstractMap.SimpleEntry<String, String>("Petrus", "Kadri");
-//        SimpleEntry<String, String> h = new AbstractMap.SimpleEntry<String, String>("Mihkel", "Ants");
-//        SimpleEntry<String, String> i = new AbstractMap.SimpleEntry<String, String>("Andero", "Ants");
-//        SimpleEntry<String, String> j = new AbstractMap.SimpleEntry<String, String>("Petrus", "Ants");
-//        SimpleEntry<String, String> l = new AbstractMap.SimpleEntry<String, String>("Petrus", "Ants");
-//        List<SimpleEntry<String, String>> dos = new ArrayList<>();
+        SimpleEntry<String, String> a = new AbstractMap.SimpleEntry<String, String>("Pets", "Paul Erdös");
+        SimpleEntry<String, String> b = new AbstractMap.SimpleEntry<String, String>("Kadri", "Paul Erdös");
+        SimpleEntry<String, String> c = new AbstractMap.SimpleEntry<String, String>("Toomas", "Paul Erdös");
+        SimpleEntry<String, String> d = new AbstractMap.SimpleEntry<String, String>("Ants", "Pets");
+        SimpleEntry<String, String> e = new AbstractMap.SimpleEntry<String, String>("Tõnu", "Pets");
+        SimpleEntry<String, String> f = new AbstractMap.SimpleEntry<String, String>("Mihkel", "Kadri");
+        SimpleEntry<String, String> g = new AbstractMap.SimpleEntry<String, String>("Petrus", "Kadri");
+        SimpleEntry<String, String> h = new AbstractMap.SimpleEntry<String, String>("Mihkel", "Ants");
+        SimpleEntry<String, String> i = new AbstractMap.SimpleEntry<String, String>("Andero", "Ants");
+        SimpleEntry<String, String> j = new AbstractMap.SimpleEntry<String, String>("Petrus", "Ants");
+        SimpleEntry<String, String> l = new AbstractMap.SimpleEntry<String, String>("Petrus", "Ants");
+        SimpleEntry<String, String> m = new AbstractMap.SimpleEntry<String, String>("Andero", "Ants1");
+        SimpleEntry<String, String> n = new AbstractMap.SimpleEntry<String, String>("Andero1", "Ants1");
+        SimpleEntry<String, String> o = new AbstractMap.SimpleEntry<String, String>("Andero2", "Andero1");
+        SimpleEntry<String, String> p = new AbstractMap.SimpleEntry<String, String>("Andero1", "Ants");
+
+        List<SimpleEntry<String, String>> dos = new ArrayList<>();
 //        dos.add(a);
-//        dos.add(b);
+        dos.add(b);
 //        dos.add(c);
 //        dos.add(d);
 //        dos.add(e);
-//        dos.add(f);
+        dos.add(f);
 //        dos.add(g);
-//        dos.add(h);
-//        dos.add(i);
+        dos.add(h);
+        dos.add(i);
 //        dos.add(j);
 //        dos.add(l);
-//        System.out.println(buildGraphAndFindErdosNumber(dos, "Mihkel"));
-        SimpleEntry<String, String> uno = new AbstractMap.SimpleEntry<String, String>("Stina", "Liisi");
-        SimpleEntry<String, String> tres = new AbstractMap.SimpleEntry<String, String>("Stina", "Paul Erdös");
+        dos.add(m);
+        dos.add(n);
+        dos.add(o);
+//        dos.add(p);
+        System.out.println(buildGraphAndFindErdosNumber(dos, "Andero2"));
 
-        SimpleEntry<String, String> tres1 = new AbstractMap.SimpleEntry<String, String>("Liisi", "Paul Erdös");
-        SimpleEntry<String, String> tres2 = new AbstractMap.SimpleEntry<String, String>("Liisi", "Kartul");
-        SimpleEntry<String, String> tres3 = new AbstractMap.SimpleEntry<String, String>("Kartul", "Paul");
-        SimpleEntry<String, String> tres4 = new AbstractMap.SimpleEntry<String, String>("Stina", "Paul1");
-        List<SimpleEntry<String, String>> dos = new ArrayList<>();
-        dos.add(uno);
-        dos.add(tres);
-        dos.add(tres1);
-        dos.add(tres2);
-        dos.add(tres3);
-        dos.add(tres4);
 
-        System.out.println(buildGraphAndFindErdosNumber(dos, "Paul"));
+//        SimpleEntry<String, String> uno = new AbstractMap.SimpleEntry<String, String>("Stina", "Liisi");
+//        SimpleEntry<String, String> tres = new AbstractMap.SimpleEntry<String, String>("Stina", "Paul Erdös");
+//
+//        SimpleEntry<String, String> tres1 = new AbstractMap.SimpleEntry<String, String>("Liisi", "Paul Erdös");
+//        SimpleEntry<String, String> tres2 = new AbstractMap.SimpleEntry<String, String>("Liisi", "Kartul");
+//        SimpleEntry<String, String> tres3 = new AbstractMap.SimpleEntry<String, String>("Kartul", "Paul");
+//        SimpleEntry<String, String> tres4 = new AbstractMap.SimpleEntry<String, String>("Stina", "Paul1");
+//        List<SimpleEntry<String, String>> dos = new ArrayList<>();
+//        dos.add(uno);
+//        dos.add(tres);
+//        dos.add(tres1);
+//        dos.add(tres2);
+//        dos.add(tres3);
+//        dos.add(tres4);
+//
+//        System.out.println(buildGraphAndFindErdosNumber(dos, "Liisi"));
     }
 }

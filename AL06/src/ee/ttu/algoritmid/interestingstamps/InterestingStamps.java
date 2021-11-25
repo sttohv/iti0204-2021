@@ -8,6 +8,9 @@ import java.util.stream.Collectors;
 public class InterestingStamps {
     public static List<Integer> findStamps(int sum, List<Integer> stampOptions) throws IllegalArgumentException {
         // TODO
+        if(stampOptions.isEmpty()){
+            throw new IllegalArgumentException();
+        }
         List<Integer> sorted = stampOptions.stream().sorted().collect(Collectors.toList());
         int len = sorted.size();
         int[][] array = new int[len][sum + 1];
@@ -40,8 +43,6 @@ public class InterestingStamps {
                 result.add(sorted.get(i));
                 min = array[i][j];
             }
-        }if(result.isEmpty()){
-            throw new IllegalArgumentException();
         }
         return result;
     }
@@ -49,7 +50,7 @@ public class InterestingStamps {
     public static void main(String[] args) {
         //List<Integer> coins = List.of(1, 10, 24, 30, 33, 36);
         List<Integer> coins = List.of(1, 5, 6, 8);
-        List<Integer> result = findStamps(11, coins);
+        List<Integer> result = findStamps(10, coins);
         for (Integer num:result
              ) {
             System.out.println(num);

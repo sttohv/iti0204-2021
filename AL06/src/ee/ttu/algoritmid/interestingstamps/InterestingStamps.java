@@ -40,6 +40,8 @@ public class InterestingStamps {
                 result.add(sorted.get(i));
                 min = array[i][j];
             }
+        }if(result.isEmpty()){
+            throw new IllegalArgumentException();
         }
         return result;
     }

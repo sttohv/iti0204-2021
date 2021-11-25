@@ -1,15 +1,15 @@
 package ee.ttu.algoritmid.interestingstamps;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class InterestingStamps {
-    public static Map<Integer, List<Integer>> memory = new HashMap<>();
-    public static Queue<Integer> queue = new LinkedList<>();
-
     public static List<Integer> findStamps(int sum, List<Integer> stampOptions) throws IllegalArgumentException {
         // TODO
-        List<Integer> sorted = stampOptions.stream().sorted().toList();
-        Integer len = stampOptions.size();
+        List<Integer> sorted = stampOptions.stream().sorted().collect(Collectors.toList());
+        int len = sorted.size();
         int[][] array = new int[len][sum + 1];
         //täidab kogu tabeli 0-dega
         for (int i = 0; i < len; i++) {

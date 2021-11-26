@@ -19,24 +19,26 @@ public class InterestingStamps {
             array[i][0] = 0;
         }
         for (int i = 0; i < sum + 1; i++) {
-            array[0][i] = i / sorted.get(0);
+           array[0][i] = i / sorted.get(0);
         }
+
         for (int i = 1; i < len; i++) {
-            for (int j = 0; j < sum + 1; j++) {
-                Integer num = sorted.get(i);
+            Integer num = sorted.get(i);
+            for (int j = 0; j <= sum ; j++) {
                 if (num > j) {
                     array[i][j] = array[i-1][j];
                 }else{
-                    array[i][j] = Math.min(array[i-1][j], array[i][j-sorted.get(i)]);
+                    array[i][j] = Math.min(array[i-1][j], 1+array[i][j-num]);
                 }
             }
         }
-        int min = array[len-2][sum];
-        int i = len -1;
+
+        int i = len - 1;
         int j = sum;
+        int min = array[i][j];
         List<Integer> result = new ArrayList<>();
         while (j!=0){
-            if(array[i-1][j] == min){
+            if(i>0 && array[i-1][j] == min){
                 i--;
             }else{
                 j = j-sorted.get(i);
@@ -48,9 +50,9 @@ public class InterestingStamps {
     }
 
     public static void main(String[] args) {
-        //List<Integer> coins = List.of(1, 10, 24, 30, 33, 36);
-        List<Integer> coins = List.of(1, 5, 6, 8);
-        List<Integer> result = findStamps(10, coins);
+        List<Integer> coins = List.of(1, 10, 24, 30, 33, 36);
+        //List<Integer> coins = List.of(1, 5, 6, 8);
+        List<Integer> result = findStamps(100, coins);
         for (Integer num:result
              ) {
             System.out.println(num);
